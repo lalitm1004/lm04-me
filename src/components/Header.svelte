@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Button } from "bits-ui";
     import Menu from "./Menu.svelte";
+    import ScrollUp from "./ScrollUp.svelte";
 
     const {
         pathname,
@@ -34,7 +35,7 @@
 
 <header class={`h-[75px] w-full`}>
     <nav
-        class={`h-full md:w-[128ch] flex items-center justify-between md:m-auto mx-4 `}
+        class={`h-full md:w-[96ch] flex items-center justify-between md:m-auto mx-4 `}
     >
         <h2 class={`font-amulya font-bold italic md:text-3xl text-2xl`}>
             <Button.Root href={slugHref}>
@@ -43,5 +44,7 @@
         </h2>
 
         <Menu {pathname} />
+
+        <ScrollUp />
     </nav>
 </header>

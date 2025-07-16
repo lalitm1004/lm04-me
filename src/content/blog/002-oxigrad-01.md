@@ -28,7 +28,6 @@ An autograd engine provides a very useful data structure for calculating the gra
 I've decided to represent the `Value` data structure using two things
 
 ```rust
-
 pub struct Value(Rc<RefCell<ValueInternal>>);
 
 pub struct ValueInternal {
@@ -46,7 +45,6 @@ This choice allows us to easily clone and pass around `Value` structs (called `n
 Add to this the `Operation` enum (which comes in VERY handy later on) and the `BackwardFn` function type that is at the heart of oxigrad.
 
 ```rust
-
 pub enum Operation {
     ADD,
     SUBTRACT,

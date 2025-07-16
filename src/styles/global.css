@@ -25,6 +25,32 @@
         @apply bg-stone-950 text-amber-50;
     }
 
+    .prose :not(pre)>code {
+        @apply bg-neutral-900 px-2 py-1 rounded-sm
+    }
+
+    /* I could not figure out how else to change the background of code blocks */
+    pre.astro-code {
+        background-color: #171717 !important;
+    }
+
+    .prose :not(pre)>code::before,
+    .prose :not(pre)>code::after {
+        content: none;
+        display: none;
+    }
+
+    .prose blockquote>p {
+        font-style: normal;
+        color: #fffbeb;
+    }
+
+    .prose blockquote p::before,
+    .prose blockquote p::after {
+        content: none;
+        display: none;
+    }
+
 
     /* +----------------------------+ */
     /* |      Scrollbar styles      | */

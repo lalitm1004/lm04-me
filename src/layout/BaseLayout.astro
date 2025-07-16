@@ -27,10 +27,10 @@ const headerParams = {
         <BaseHead {title} {description} />
     </head>
 
-    <body class={`flex flex-col items-center overflow-x-hidden`}>
+    <body class={`flex flex-col md:items-center overflow-x-hidden`}>
         <Header client:load {...headerParams} />
 
-        <main class={`bg-red-100/10 min-h-[90dvh] w-[128ch]`}>
+        <main class={`min-h-[90dvh] md:w-[96ch] md:m-auto mx-4`}>
             <slot />
         </main>
 

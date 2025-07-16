@@ -75,10 +75,7 @@
                 {/each}
             </DropdownMenu.Group>
 
-            <Separator.Root
-                orientation={`horizontal`}
-                class={`data-[orientation="horizontal"]:h-[1px] data-[orientation="horizontal"]:w-[80%] mx-auto mb-2 mt-1 bg-neutral-800`}
-            />
+            <hr class={`h-[2px] border-neutral-800 w-[80%] mx-auto my-2`} />
 
             <DropdownMenu.Group class={`flex flex-col gap-1`}>
                 {#each externalAnchors as anchor (anchor.id)}
