@@ -1,0 +1,34 @@
+---
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.svelte";
+
+interface Props {
+    title?: string;
+    description?: string;
+    slugOverride?: string;
+}
+
+const {
+    title = SITE_TITLE,
+    description = SITE_DESCRIPTION,
+    slugOverride,
+} = Astro.props;
+
+const headerParams = {
+    pathname: Astro.url.pathname,
+    slugOverride,
+};
+---
+
+<html lang="en">
+    <head>
+        <BaseHead {title} {description} />
+    </head>
+
+    <body>
+        <Header client:load {...headerParams} />
+
+        <slot />
+    </body>
+</html>
