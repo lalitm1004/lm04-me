@@ -32,7 +32,7 @@
     const slugHref: string = $derived.by(() => slugHrefMap[slug] ?? "/");
 </script>
 
-<header class={`absolute left-0 top-0 h-[75px] w-full`}>
+<header class={`h-[75px] w-full`}>
     <nav
         class={`h-full md:w-[128ch] flex items-center justify-between md:m-auto mx-4 `}
     >

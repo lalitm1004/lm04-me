@@ -51,7 +51,7 @@
 
     <DropdownMenu.Portal>
         <DropdownMenu.Content
-            class={`w-[144px] py-2 border-2 border-neutral-800 rounded-md`}
+            class={`w-[144px] py-2 border-2 border-neutral-800 rounded-md bg-stone-950`}
             sideOffset={6}
         >
             <DropdownMenu.Group class={`flex flex-col gap-1`}>
