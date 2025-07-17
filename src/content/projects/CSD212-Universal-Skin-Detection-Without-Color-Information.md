@@ -1,6 +1,4 @@
 ---
-slug: "universal-skin-detection-without-color-information"
-meta-title: "Univeral Skin Detection Without Color Information"
 title: "Univeral Skin Detection Without Color Information"
 description: "Implementation of the paper \"Universal Skin Detection Without Color Information (WACV 2017)\""
 start_date: "February 19 2025"

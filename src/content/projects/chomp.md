@@ -1,6 +1,4 @@
 ---
-slug: "chomp"
-meta-title: "chomp"
 title: "Prisoners Dilemma"
 description: "A 2-player game where each player tries to push the other into eating the poisoned chocolate"
 start_date: "October 1 2024"

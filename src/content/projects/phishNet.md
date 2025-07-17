@@ -1,6 +1,4 @@
 ---
-slug: "phishnet"
-meta-title: "phishNet"
 title: "phishNet"
 description: "An MLP model to analyze and categorize URL's as safe or unsafe"
 start_date: "October 12 2023"

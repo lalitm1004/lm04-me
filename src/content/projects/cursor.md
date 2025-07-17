@@ -1,6 +1,4 @@
 ---
-slug: "cursor"
-meta-title: "Cursor"
 title: "Cursor"
 description: "15min \"project\" that follows your cursor"
 start_date: "March 25 2024"

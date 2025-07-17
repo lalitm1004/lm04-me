@@ -1,6 +1,4 @@
 ---
-slug: "composition"
-meta-title: "composition"
 title: "composition"
 description: "A CLI tool to understand the composition of your codebase"
 start_date: "October 28 2024"

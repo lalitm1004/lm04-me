@@ -1,6 +1,4 @@
 ---
-slug: "prisoners-dilemma-simulation-engine"
-meta-title: "Prisoners Dilemma Simulation Engine"
 title: "Prisoners Dilemma Simulation Engine"
 description: "A primitive render + simulation engine for Prisoners Dilemma in a Moore neighbourhood"
 start_date: "September 23 2024"

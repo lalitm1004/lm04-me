@@ -1,6 +1,4 @@
 ---
-slug: "cache-n-carry"
-meta-title: "CacheNCarry"
 title: "CacheNCarry"
 description: "A platform to solve the issue of missing luggage and misplaced mattresses at the end of every academic year"
 start_date: "April 18 2025"

@@ -1,6 +1,4 @@
 ---
-slug: "freaky-website"
-meta-title: "freaky website"
 title: "freaky website"
 description: "What if i touched you? 𝓯𝓻𝓮𝓪𝓴𝔂 style"
 start_date: "June 3 2024"

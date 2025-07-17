@@ -1,6 +1,4 @@
 ---
-slug: "cli-wrapped"
-meta-title: "CLI Wrapped"
 title: "CLI Wrapped"
 description: "A CLI tool inspired by Spotify Wrapped to keep track of command usage over a year"
 start_date: "Dec 19 2024"

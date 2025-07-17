@@ -1,6 +1,4 @@
 ---
-slug: "real-voting-website"
-meta-title: "Real Voting Website"
 title: "Real Voting Website"
 description: "An honest and non-rigged voting website with no tricks whatsoever"
 start_date: "April 2 2025"

@@ -1,6 +1,4 @@
 ---
-slug: "prisoners-dilemma"
-meta-title: "Google Forms Feedback Tool"
 title: "Google Forms Feeback Tool"
 description: "Python tool to try and automate daily updating of Google Forms for feedback collection"
 start_date: "November 23 2023"

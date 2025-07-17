@@ -1,6 +1,4 @@
 ---
-slug: "unisync"
-meta-title: "UniSync"
 title: "UniSync"
 description: "An Automation tool to seamlessly integrate ERP schedule data into Google Calendars"
 start_date: "August 30 2023"

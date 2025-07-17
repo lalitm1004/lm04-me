@@ -1,8 +1,8 @@
 ---
-slug: "building-oxigrad"
-meta_title: "Building Oxigrad"
-title: "Building Oxigrad"
-description: "A scalar-valued autograd engine written in Rust with Python bindings"
+slug: "building-oxigrad-autograd"
+meta_title: "Building Oxigrad:Autograd"
+title: "Building Oxigrad:Autograd"
+description: "A minimal scalar-valued autograd engine written in Rust with Python bindings"
 publish_date: July 08 2025
 is_published: true
 is_pinned: true

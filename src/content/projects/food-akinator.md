@@ -1,6 +1,4 @@
 ---
-slug: "food-akinator"
-meta-title: "Food Akinator"
 title: "Food Akinator"
 description: "A reconstruction of Akinator scoped to food items found on SNU's campus"
 start_date: "June 11 2025"

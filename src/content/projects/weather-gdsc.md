@@ -1,6 +1,4 @@
 ---
-slug: "weather-gdsc"
-meta-title: "WeatherGDSC"
 title: "WeatherGDSC"
 description: "My first webapp developed as a recruitment task for GDSC-SNIoE"
 start_date: "December 27 2023"

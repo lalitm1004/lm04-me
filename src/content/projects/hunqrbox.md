@@ -1,6 +1,4 @@
 ---
-slug: "hunqr-box"
-meta-title: "HunQR Box"
 title: "HunQR Box"
 description: "A WebApp-PWA with the sole purpose of displaying QR codes of a 4 digit numeric sequence"
 start_date: "March 5 2024"

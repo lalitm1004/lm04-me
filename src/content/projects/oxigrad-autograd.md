@@ -1,6 +1,5 @@
 ---
-slug: "oxigrad-scalar-autograd"
-meta-title: "Oxigrad - Scalar Autograd"
+blog_slug: "building-oxigrad-autograd"
 title: "Oxigrad - Scalar Autograd"
 description: "A scalar valued autograd engine written in Rust with Python bindings"
 start_date: "July 3 2025"

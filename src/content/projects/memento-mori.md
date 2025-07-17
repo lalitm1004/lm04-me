@@ -1,6 +1,4 @@
 ---
-slug: "memnto-mori"
-meta-title: "Memento Mori"
 title: "Memento Mori"
 description: "Remember you must die"
 start_date: "February 28 2024"

@@ -1,6 +1,4 @@
 ---
-slug: "evelynn-discord-bot"
-meta-title: "Evelynn Discord Bot"
 title: "Evelynn Discord Bot"
 description: "A simple discord bot with NSFW features and simple usage tracking"
 start_date: "Sep 18 2023"

@@ -1,6 +1,4 @@
 ---
-slug: "courselock"
-meta-title: "Courselock"
 title: "Courselock"
 description: "I slept through the first time I had to enroll into courses so I developed a system that would automatically do it for me. (It did not work)"
 start_date: "November 26 2023"
