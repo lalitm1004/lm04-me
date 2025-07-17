@@ -1,4 +1,5 @@
 ---
+slug: "first-blog-post"
 title: "First BlogPost!"
 description: "Blog website is functional!"
 publish_date: "July 07 2025"

@@ -5,11 +5,12 @@ import type { CollectionEntry } from "astro:content";
 import { Button } from "bits-ui";
 import BaseLayout from "../../layout/BaseLayout.astro";
 import RenderTags from "../../components/RenderTags.svelte";
+import slugify from "../../utils/slugify";
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog");
     return posts.map((post) => ({
-        params: { slug: post.id },
+        params: { slug: slugify(post.data.slug) },
         props: post,
     }));
 }

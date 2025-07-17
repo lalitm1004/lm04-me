@@ -2,6 +2,7 @@
     import type { CollectionEntry } from "astro:content";
     import { Button, Separator } from "bits-ui";
     import RenderTags from "./RenderTags.svelte";
+    import slugify from "../utils/slugify";
 
     type Blog = CollectionEntry<"blog">;
 
@@ -14,7 +15,7 @@
 >
     <Button.Root
         class={`h-full w-full`}
-        href={`/blog/${blog.id}`}
+        href={`/blog/${slugify(blog.data.slug)}`}
         data-astro-prefetch={`load`}
     >
         <time

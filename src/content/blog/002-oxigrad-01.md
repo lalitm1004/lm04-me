@@ -1,4 +1,5 @@
 ---
+slug: "building-oxigrad"
 meta_title: "Building Oxigrad"
 title: "Building Oxigrad"
 description: "A scalar-valued autograd engine written in Rust with Python bindings"
