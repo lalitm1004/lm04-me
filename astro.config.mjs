@@ -4,6 +4,7 @@ import devtoolsJson from "vite-plugin-devtools-json";
 import mermaid from "astro-mermaid";
 import mdx from "@astrojs/mdx";
 import remarkMath from "remark-math";
+import rehypeExternalLinks from "rehype-external-links";
 import rehypeKatex from "rehype-katex";
 import sitemap from "@astrojs/sitemap";
 import svelte from "@astrojs/svelte";
@@ -40,6 +41,12 @@ export default defineConfig({
 			theme: "everforest-dark",
 		},
 		remarkPlugins: [remarkMath],
-		rehypePlugins: [rehypeKatex],
+		rehypePlugins: [
+			[rehypeExternalLinks, {
+				target: "_blank",
+				rel: ["noopener", "noreferrer"]
+			}],
+			rehypeKatex
+		],
 	}
 });

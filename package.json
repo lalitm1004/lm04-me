@@ -19,6 +19,7 @@
     "astro-mermaid": "^1.0.4",
     "bits-ui": "^2.8.11",
     "mermaid": "^11.9.0",
+    "rehype-external-links": "^3.0.0",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "svelte": "^5.36.2",

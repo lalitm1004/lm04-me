@@ -2,7 +2,13 @@
     import { Button, DropdownMenu } from "bits-ui";
     import { slide } from "svelte/transition";
 
-    const { pathname }: { pathname: string } = $props();
+    const { slug, pathname }: { slug: string; pathname: string } = $props();
+
+    const menuText = $derived.by(() => {
+        if (slug === "me") return "Home";
+        let capitalized = slug.charAt(0).toUpperCase() + slug.slice(1);
+        return capitalized;
+    });
 
     const internalAnchors = [
         {
@@ -45,7 +51,7 @@
     <DropdownMenu.Trigger
         class={`w-[144px] flex justify-between items-center pl-3 pr-2 py-1 hover:bg-neutral-800/50 border-2 border-neutral-800 rounded-md outline-0 cursor-pointer transition-colors duration-300`}
     >
-        <p>Menu</p>
+        <p>{menuText}</p>
 
         {@render upDownSvg()}
     </DropdownMenu.Trigger>

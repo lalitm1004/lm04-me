@@ -43,7 +43,7 @@
             </Button.Root>
         </h2>
 
-        <Menu {pathname} />
+        <Menu {pathname} {slug} />
 
         <ScrollUp />
     </nav>
