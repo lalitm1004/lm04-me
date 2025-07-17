@@ -1,5 +1,24 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "../layout/BaseLayout.astro";
+import OmoriPng from "../assets/omori.png";
 ---
 
-<BaseLayout slugOverride={`404`} />
+<BaseLayout
+    title={`lm04/404`}
+    description={`Waiting for something to happen?`}
+    slugOverride={`404`}
+>
+    <div class={`h-[80dvh] w-full flex flex-col justify-center items-center `}>
+        <Image
+            src={OmoriPng}
+            alt={`Omori Pixel Art`}
+            class={`h-[100px] w-[100px]`}
+            priority
+        />
+
+        <p class={`font-omori md:text-4xl text-xl`}>
+            404 (Waiting for something to happen?)
+        </p>
+    </div>
+</BaseLayout>

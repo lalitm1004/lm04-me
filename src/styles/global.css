@@ -7,6 +7,7 @@
     --font-amulya: 'Amulya', sans-serif;
     --font-quattro: 'Quattro', sans-serif;
     --font-jetbrains: 'JetBrainsMono', monospace;
+    --font-omori: 'Omori', sans-serif;
 
     --font-weight-thin: 100;
     --font-weight-extralight: 200;
@@ -115,6 +116,14 @@
 @font-face {
     font-family: 'JetBrainsMono';
     src: url('/fonts/JetBrainsMono/JetBrainsMono-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Omori';
+    src: url('/fonts/Omori/OMORI_GAME2.ttf') format('truetype');
     font-weight: 400;
     font-display: swap;
     font-style: normal;
