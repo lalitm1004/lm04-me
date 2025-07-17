@@ -1,5 +1,6 @@
 <script lang="ts">
-    import { Button, DropdownMenu, Separator } from "bits-ui";
+    import { Button, DropdownMenu } from "bits-ui";
+    import { slide } from "svelte/transition";
 
     const { pathname }: { pathname: string } = $props();
 
@@ -53,45 +54,58 @@
         <DropdownMenu.Content
             class={`w-[144px] py-2 border-2 border-neutral-800 rounded-md bg-stone-950`}
             sideOffset={6}
+            forceMount
         >
-            <DropdownMenu.Group class={`flex flex-col gap-1`}>
-                {#each internalAnchors as anchor (anchor.id)}
-                    {@const href = anchor.href}
-                    {@const isCurrentPage =
-                        pathname === href || pathname.startsWith(`${href}/`)}
+            {#snippet child({ wrapperProps, props, open })}
+                {#if open}
+                    <div {...wrapperProps}>
+                        <div {...props} transition:slide>
+                            <DropdownMenu.Group class={`flex flex-col gap-1`}>
+                                {#each internalAnchors as anchor (anchor.id)}
+                                    {@const href = anchor.href}
+                                    {@const isCurrentPage =
+                                        pathname === href ||
+                                        pathname.startsWith(`${href}/`)}
 
-                    <DropdownMenu.Item class={`group`}>
-                        <Button.Root
-                            {href}
-                            data-current={isCurrentPage}
-                            data-astro-prefetch={`load`}
-                            class={`flex items-center justify-between mx-2 px-2 py-1 data-[current="true"]:bg-neutral-800/50 data-[current="false"]:group-hover:bg-neutral-800/50 rounded-md outline-0 transition-colors duration-300`}
-                        >
-                            {anchor.display}
+                                    <DropdownMenu.Item class={`group`}>
+                                        <Button.Root
+                                            {href}
+                                            data-current={isCurrentPage}
+                                            data-astro-prefetch={`load`}
+                                            class={`flex items-center justify-between mx-2 px-2 py-1 data-[current="true"]:bg-neutral-800/50 data-[current="false"]:group-hover:bg-neutral-800/50 rounded-md outline-0 transition-colors duration-300`}
+                                        >
+                                            <p>{anchor.display}</p>
 
-                            {@render anchor.icon()}
-                        </Button.Root>
-                    </DropdownMenu.Item>
-                {/each}
-            </DropdownMenu.Group>
+                                            {@render anchor.icon()}
+                                        </Button.Root>
+                                    </DropdownMenu.Item>
+                                {/each}
+                            </DropdownMenu.Group>
 
-            <hr class={`h-[2px] border-neutral-800 w-[80%] mx-auto my-2`} />
+                            <hr
+                                class={`h-[2px] border-neutral-800 w-[80%] mx-auto my-2`}
+                            />
 
-            <DropdownMenu.Group class={`flex flex-col gap-1`}>
-                {#each externalAnchors as anchor (anchor.id)}
-                    <DropdownMenu.Item class={`group`}>
-                        <Button.Root
-                            href={anchor.href}
-                            target={"_blank"}
-                            rel={`noopener noreferrer`}
-                            class={`flex items-center justify-between mx-2 px-2 py-1 group-hover:bg-neutral-800/50 rounded-md outline-0 transition-colors duration-300`}
-                        >
-                            {anchor.display}
-                            {@render anchor.icon()}
-                        </Button.Root>
-                    </DropdownMenu.Item>
-                {/each}
-            </DropdownMenu.Group>
+                            <DropdownMenu.Group class={`flex flex-col gap-1`}>
+                                {#each externalAnchors as anchor (anchor.id)}
+                                    <DropdownMenu.Item class={`group`}>
+                                        <Button.Root
+                                            href={anchor.href}
+                                            target={"_blank"}
+                                            rel={`noopener noreferrer`}
+                                            class={`flex items-center justify-between mx-2 px-2 py-1 group-hover:bg-neutral-800/50 rounded-md outline-0 transition-colors duration-300`}
+                                        >
+                                            <p>{anchor.display}</p>
+
+                                            {@render anchor.icon()}
+                                        </Button.Root>
+                                    </DropdownMenu.Item>
+                                {/each}
+                            </DropdownMenu.Group>
+                        </div>
+                    </div>
+                {/if}
+            {/snippet}
         </DropdownMenu.Content>
     </DropdownMenu.Portal>
 </DropdownMenu.Root>
