@@ -28,6 +28,8 @@ const projects = defineCollection({
         is_pinned: z.boolean().default(false),
         is_important: z.boolean().default(false),
         project_tags: z.array(z.string()).default([]).nullable(),
+        repository_link: z.string().optional(),
+        deployment_link: z.string().optional(),
     }),
 })
 
