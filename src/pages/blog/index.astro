@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layout/BaseLayout.astro";
 import BlogPostLink from "../../components/BlogPostLink.svelte";
+import { BLOG_DESCRIPTION } from "../../consts";
 
 const blogPosts = (await getCollection("blog"))
     .filter((b) => b.data.is_published)
@@ -10,7 +11,7 @@ const blogPosts = (await getCollection("blog"))
     );
 ---
 
-<BaseLayout title={`lm04/blog`}>
+<BaseLayout title={`lm04/blog`} description={BLOG_DESCRIPTION}>
     <h1 class={`sr-only`}>lm04/blog</h1>
 
     <ul class={`flex flex-col gap-4`}>

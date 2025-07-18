@@ -6,6 +6,7 @@ import type {
     YearBucket,
 } from "../../types/project.type";
 import YearBuckets from "../../components/YearBuckets.svelte";
+import { PROJECTS_DESCRIPTION } from "../../consts";
 
 const formatTimeRange = (start: Date, end?: Date): string => {
     const formatDate = (date: Date) =>
@@ -66,8 +67,8 @@ const getYearBuckets = async (): Promise<YearBucket[]> => {
 const yearBuckets = await getYearBuckets();
 ---
 
-<BaseLayout title={`lm04/blog`}>
+<BaseLayout title={`lm04/projects`} description={PROJECTS_DESCRIPTION}>
     <h1 class={`sr-only`}>lm04/projects</h1>
 
-    <YearBuckets {yearBuckets} />
+    <YearBuckets client:load {yearBuckets} />
 </BaseLayout>

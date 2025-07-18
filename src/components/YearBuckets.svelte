@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { Button } from "bits-ui";
+    import { Button, Tooltip } from "bits-ui";
     import type { YearBucket } from "../types/project.type";
     import RenderTags from "./RenderTags.svelte";
 
@@ -20,15 +20,36 @@
             <ul class={`grid md:grid-cols-2 grid-cols-1 gap-4 px-2`}>
                 {#each bucket.projects as project (project.id)}
                     {@const safeTags = project.data.project_tags ?? []}
-                    {@const mx = "mx-4"}
+                    {@const mx = "ml-5 mr-4"}
 
                     <li
-                        class={`group relative flex flex-col gap-1 pt-3 pb-0 border-2 border-neutral-800 rounded-md overflow-hidden hover:border-stone-600 hover:shadow-sm hover:shadow-stone-800 transition-all duration-300`}
+                        class={`group bg-stone-950 relative flex flex-col gap-1 pt-5 pb-0 border-2 border-neutral-800 rounded-md overflow-hidden hover:border-stone-600 hover:shadow-sm hover:shadow-stone-800 transition-all duration-300`}
                     >
                         {#if project.data.is_important}
-                            <span class={`absolute top-4 right-4`}>
-                                {@render starSvg()}
-                            </span>
+                            <Tooltip.Provider>
+                                <Tooltip.Root delayDuration={200}>
+                                    <Tooltip.Trigger
+                                        class={`absolute top-4 right-4 cursor-pointer`}
+                                    >
+                                        {@render starSvg()}
+
+                                        <p class={`sr-only`}>
+                                            Featured Project!
+                                        </p>
+                                    </Tooltip.Trigger>
+
+                                    <Tooltip.Content
+                                        sideOffset={8}
+                                        side={`left`}
+                                    >
+                                        <div
+                                            class={`z-50 bg-stone-950 border-2 border-neutral-800 px-2 py-1 rounded-md text-sm`}
+                                        >
+                                            Featured Project!
+                                        </div>
+                                    </Tooltip.Content>
+                                </Tooltip.Root>
+                            </Tooltip.Provider>
                         {/if}
 
                         <p class={`text-stone-500 text-sm ${mx}`}>
@@ -39,11 +60,11 @@
                             {project.data.title}
                         </h4>
 
-                        <span class={`mx-3 -mt-1`}>
+                        <span class={`mx-4 -mt-1`}>
                             <RenderTags tags={safeTags} />
                         </span>
 
-                        <p class={`flex-grow text-sm ${mx} mt-2`}>
+                        <p class={`flex-grow text-sm ${mx} mt-2 text-wrap`}>
                             {project.data.description}
                         </p>
 
