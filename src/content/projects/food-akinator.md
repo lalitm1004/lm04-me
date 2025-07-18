@@ -4,7 +4,7 @@ description: "A reconstruction of Akinator scoped to food items found on SNU's c
 start_date: "June 11 2025"
 is_published: true
 is_pinned: false
-is_important: true
+is_important: false
 project_tags:
 - Python
 - Sqlite

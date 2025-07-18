@@ -5,7 +5,7 @@ start_date: "Sep 18 2023"
 end_date: "Jun 23 2025"
 is_published: true
 is_pinned: false
-is_important: true
+is_important: false
 project_tags:
 - Python
 - pycord

@@ -5,7 +5,7 @@ start_date: "April 18 2025"
 end_date: "April 21 2025"
 is_published: true
 is_pinned: false
-is_important: true
+is_important: false
 project_tags:
 - SvelteKit
 - Prisma
