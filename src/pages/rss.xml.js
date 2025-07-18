@@ -5,24 +5,16 @@ import slugify from '../utils/slugify';
 
 export async function GET(context) {
     const blogPosts = await getCollection('blog');
-    const projectPosts = await getCollection('projects');
 
     const blogItems = blogPosts.map((post) => ({
         ...post.data,
         link: `/blog/${slugify(post.data.slug)}/`,
-        pubDate: post.data.publish_date,
+        publishDate: post.data.publish_date,
         customData: `<category>blog</category>`,
     }));
 
-    const projectItems = projectPosts.map((project) => ({
-        ...project.data,
-        link: `/projects/${slugify(project.data.slug)}/`,
-        pubDate: project.data.pubDate,
-        customData: `<category>project</category>`,
-    }));
-
-    const allItems = [...blogItems, ...projectItems].sort((a, b) => {
-        return new Date(b.pubDate) - new Date(a.pubDate);
+    const allItems = [...blogItems].sort((a, b) => {
+        return new Date(b.publishDate) - new Date(a.publishDate);
     });
 
     return rss({

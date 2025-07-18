@@ -1,7 +1,7 @@
 ---
 slug: "building-oxigrad-autograd"
-meta_title: "Building Oxigrad:Autograd"
-title: "Building Oxigrad:Autograd"
+meta_title: "Building an autograd engine in Rust"
+title: "Building an autograd engine in Rust"
 description: "A minimal scalar-valued autograd engine written in Rust with Python bindings"
 publish_date: July 08 2025
 is_published: true

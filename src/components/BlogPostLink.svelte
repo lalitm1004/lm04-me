@@ -19,7 +19,7 @@
         data-astro-prefetch={`load`}
     >
         <time
-            class={`text-stone-500`}
+            class={`text-stone-500 text-sm`}
             datetime={blog.data.publish_date.toISOString()}
         >
             {blog.data.publish_date.toLocaleDateString("en-us", {
@@ -30,9 +30,8 @@
         </time>
 
         <hgroup>
-            <h4 class={`font-amulya font-bold text-xl`}>
-                {blog.data.title}
-            </h4>
+            <h4 class={`font-amulya font-bold text-xl`}>{blog.data.title}</h4>
+
             <p class={`text-sm`}>{blog.data.description}</p>
         </hgroup>
 

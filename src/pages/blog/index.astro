@@ -3,21 +3,17 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../../layout/BaseLayout.astro";
 import BlogPostLink from "../../components/BlogPostLink.svelte";
 
-const blogPosts = (await getCollection("blog")).sort(
-    (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
-);
+const blogPosts = (await getCollection("blog"))
+    .filter((b) => b.data.is_published)
+    .sort(
+        (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
+    );
 ---
 
 <BaseLayout title={`lm04/blog`}>
-    <section>
-        <h1 class={`sr-only`}>lm04/blog</h1>
+    <h1 class={`sr-only`}>lm04/blog</h1>
 
-        <ul class={`flex flex-col gap-4`}>
-            {
-                blogPosts
-                    .filter((blog) => blog.data.is_published)
-                    .map((blog) => <BlogPostLink {blog} />)
-            }
-        </ul>
-    </section>
+    <ul class={`flex flex-col gap-4`}>
+        {blogPosts.map((blog) => <BlogPostLink {blog} />)}
+    </ul>
 </BaseLayout>

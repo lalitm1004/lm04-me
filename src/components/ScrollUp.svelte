@@ -17,7 +17,7 @@
     <button
         transition:fly={{ y: "100%" }}
         onclick={scrollToTop}
-        class={`z-50 fixed bottom-4 md:right-78.5 right-4 h-[40px] aspect-square grid place-items-center rounded-full bg-stone-950 border-2 border-neutral-800/80 cursor-pointer hover:bg-stone-900 transition-colors duration-300`}
+        class={`z-50 fixed bottom-4 md:right-78.5 right-4 md:h-[40px] h-[50px] aspect-square grid place-items-center rounded-full bg-stone-950 border-2 border-neutral-800/80 cursor-pointer hover:bg-stone-900 transition-colors duration-300`}
     >
         {@render arrowUpSvg()}
     </button>
@@ -25,7 +25,7 @@
 
 {#snippet arrowUpSvg()}
     <svg
-        class={`h-[20px] aspect-square fill-none stroke-2 stroke-neutral-500  lucide lucide-arrow-up-icon lucide-arrow-up`}
+        class={`h-[20px] aspect-square fill-none stroke-2 stroke-neutral-500 lucide lucide-arrow-up-icon lucide-arrow-up`}
         viewBox="0 0 24 24"
         stroke-linecap="round"
         stroke-linejoin="round"

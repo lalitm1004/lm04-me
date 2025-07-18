@@ -1,5 +1,6 @@
 ---
 slug: "first-blog-post"
+meta_title: "First BlogPost!"
 title: "First BlogPost!"
 description: "Blog website is functional!"
 publish_date: "July 07 2025"
