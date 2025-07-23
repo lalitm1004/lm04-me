@@ -5,7 +5,7 @@ start_date: "October 1 2024"
 end_date: "October 10 2024"
 is_published: true
 is_pinned: false
-is_important: true
+is_important: false
 project_tags:
 - SvelteKit
 repository_link: "https://github.com/lalitm1004/chomp"
