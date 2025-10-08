@@ -1,6 +1,6 @@
 ---
 title: "composition"
-description: "A CLI tool to understand the composition of your codebase"
+description: "A modular lines-of-code CLI tool to analyze and display code composition in directories"
 start_date: "October 28 2024"
 end_date: "September 6 2025"
 is_published: true
