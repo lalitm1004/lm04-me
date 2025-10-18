@@ -1,5 +1,6 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
+import type { ImageMetadata } from "astro";
 
 
 const blog = defineCollection({
@@ -21,20 +22,21 @@ const blog = defineCollection({
 
 /**
  * order_id: monotonically increasing ID to order experiences/roles (descending)
+ * company_site_url: main site first and then fallback to linkedin
  */
 const experiences = defineCollection({
     loader: glob({
         base: "./src/content/experiences",
         pattern: "**/*.{md,mdx}",
     }),
-    schema: () => z.object({
+    schema: ({ image }) => z.object({
         order_id: z.number(),
         company_name: z.string(),
-        icon: z.string(),
+        icon: image(),
+        company_site_url: z.string().optional(),
         roles: z.array(z.object({
             order_id: z.number(),
             title: z.string(),
-            description: z.string(),
             start_date: z.coerce.date(),
             end_date: z.coerce.date().optional(),
             is_visible: z.boolean().default(false),
@@ -64,9 +66,9 @@ const projects = defineCollection({
         is_visible: z.boolean().default(false),
         is_pinned: z.boolean().default(false),
         tags: z.array(z.string()).default([]).nullable(),
-        repository_link: z.string().optional(),
+        repository_url: z.string().optional(),
         blog_slug: z.string().optional(),
-        deployment_link: z.string().optional(),
+        deployment_url: z.string().optional(),
         deployment_text: z.string().default("Deployment")
     })
 })

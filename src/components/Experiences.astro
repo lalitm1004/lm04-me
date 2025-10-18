@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+    experiences: CollectionEntry<"experiences">[];
+}
+
+const { experiences } = Astro.props;
+---
+
+<ol></ol>
