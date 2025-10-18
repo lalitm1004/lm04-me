@@ -1,11 +1,13 @@
 ---
 import { Button } from "bits-ui";
 
+import NavigationMenu from "./NavigationMenu.svelte";
+import ScrollUp from "./ScrollUp.svelte";
+
 interface Props {
     pathname: string;
     slug: string;
 }
-
 const { pathname, slug } = Astro.props;
 
 const slugHrefMap: Record<string, string> = {
@@ -26,5 +28,9 @@ const slugHref = slugHrefMap[slug] ?? "/";
                 lm04/{slug}
             </Button.Root>
         </h2>
+
+        <NavigationMenu client:load {slug} {pathname} />
+
+        <ScrollUp client:load />
     </nav>
 </header>
