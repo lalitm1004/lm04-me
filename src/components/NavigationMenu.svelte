@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Button, DropdownMenu } from "bits-ui";
     import { slide } from "svelte/transition";
+    import { PERSONAL_INFO } from "../consts";
 
     const { slug, pathname }: { slug: string; pathname: string } = $props();
 
@@ -41,13 +42,13 @@
         {
             id: 0,
             display: "GitHub",
-            href: "https://github.com/lalitm1004",
+            href: PERSONAL_INFO.githubUrl,
             icon: githubSvg,
         },
         {
             id: 1,
             display: "LinkedIn",
-            href: "https://www.linkedin.com/in/lalitm1004/",
+            href: PERSONAL_INFO.linkedinUrl,
             icon: linkedinSvg,
         },
     ];
