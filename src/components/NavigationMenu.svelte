@@ -29,6 +29,12 @@
             href: "/blog",
             icon: blogSvg,
         },
+        {
+            id: 3,
+            display: "Experiences",
+            href: "/experiences",
+            icon: experiencesSvg,
+        },
     ];
 
     const externalAnchors = [
@@ -49,7 +55,7 @@
 
 <DropdownMenu.Root>
     <DropdownMenu.Trigger
-        class={`w-[144px] flex justify-between items-center pl-3 pr-2 py-1 hover:bg-neutral-800/50 border-2 border-neutral-800 rounded-md outline-0 cursor-pointer transition-colors duration-300`}
+        class={`w-[165px] flex justify-between items-center pl-3 pr-2 py-1 hover:bg-neutral-800/50 border-2 border-neutral-800 rounded-md outline-0 cursor-pointer transition-colors duration-300`}
     >
         <p>{menuText}</p>
         {@render upDownSvg()}
@@ -57,7 +63,7 @@
 
     <DropdownMenu.Portal>
         <DropdownMenu.Content
-            class={`w-[144px] py-2 border-2 border-neutral-800 rounded-md bg-stone-950`}
+            class={`w-[165px] py-2 border-2 border-neutral-800 rounded-md bg-stone-950`}
             sideOffset={6}
             forceMount
         >
@@ -211,5 +217,20 @@
         <path
             d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"
         />
+    </svg>
+{/snippet}
+
+{#snippet experiencesSvg()}
+    <svg
+        class={`h-[20px] aspect-square fill-none stroke-2 stroke-neutral-300 lucide lucide-briefcase-business-icon lucide-briefcase-business`}
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    >
+        <path d="M12 12h.01" />
+        <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+        <path d="M22 13a18.15 18.15 0 0 1-20 0" />
+        <rect width="20" height="14" x="2" y="6" rx="2" />
     </svg>
 {/snippet}
