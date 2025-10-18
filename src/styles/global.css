@@ -24,15 +24,11 @@
     }
 }
 
+/* scrollbar styles */
 @layer base {
-     /* +----------------------------+ */
-    /* |      Scrollbar styles      | */
-    /* +----------------------------+ */
     * {
         scrollbar-width: thin;
-        /* Firefox */
         scrollbar-color: #525252 #171717;
-        /* Firefox */
     }
 
     *::-webkit-scrollbar {
