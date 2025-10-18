@@ -24,7 +24,7 @@ const blog = defineCollection({
  */
 const experiences = defineCollection({
     loader: glob({
-        base: "./src/content/projects",
+        base: "./src/content/experiences",
         pattern: "**/*.{md,mdx}",
     }),
     schema: () => z.object({
