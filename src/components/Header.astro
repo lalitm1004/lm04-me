@@ -1,0 +1,30 @@
+---
+import { Button } from "bits-ui";
+
+interface Props {
+    pathname: string;
+    slug: string;
+}
+
+const { pathname, slug } = Astro.props;
+
+const slugHrefMap: Record<string, string> = {
+    me: "/",
+    "404": "/",
+    blog: "/blog",
+    projects: "/projects",
+};
+const slugHref = slugHrefMap[slug] ?? "/";
+---
+
+<header class={`h-[75px] w-full my-4`}>
+    <nav
+        class={`h-full md:w-[96ch] flex items-center justify-between md:m-auto mx-4`}
+    >
+        <h2 class={`font-amulya font-bold italic md:text-3xl text-2xl`}>
+            <Button.Root href={slugHref}>
+                lm04/{slug}
+            </Button.Root>
+        </h2>
+    </nav>
+</header>

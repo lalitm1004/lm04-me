@@ -1,0 +1,13 @@
+---
+const startYear = 2025;
+const currentYear = new Date().getFullYear();
+
+const yearDisplay =
+    startYear === currentYear ? `${startYear}` : `${startYear}-${currentYear}`;
+---
+
+<footer class={`h-[40px] w-dvw grid place-items-center mt-2`}>
+    <p class={`text-xs text-stone-600`}>
+        © {yearDisplay} Lalit Maurya. All rights reserved.
+    </p>
+</footer>

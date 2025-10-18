@@ -20,6 +20,7 @@
 @layer base {
     html {
         @apply font-quattro;
+        @apply bg-stone-950 text-amber-50;
     }
 }
 

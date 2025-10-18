@@ -1,8 +1,11 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import { SITE_INFO } from "../consts";
 import type { ImageMetadata } from "astro";
+import { SITE_INFO } from "../consts";
 import FallbackImage from "../../public/me.png";
+
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
     titleOverride?: string;
@@ -23,4 +26,14 @@ const {
     <head>
         <BaseHead {title} {description} {image} />
     </head>
+
+    <body class={`flex flex-col md:items-center overflow-x-hidden`}>
+        <Header pathname={Astro.url.pathname} {slug} />
+
+        <main class={`min-h-[84dvh] md:w-[96ch] md:m-auto mx-4`}>
+            <slot />
+        </main>
+
+        <Footer />
+    </body>
 </html>
