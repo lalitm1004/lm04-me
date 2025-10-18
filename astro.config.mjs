@@ -7,6 +7,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
+  site: "https://lm04.me",
+
   vite: {
     plugins: [devtoolsJson(), tailwindcss()]
   },
