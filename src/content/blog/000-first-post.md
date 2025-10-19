@@ -1,0 +1,14 @@
+---
+slug: "first-blog-post"
+title: "First BlogPost!"
+description: "Blog website is functional!"
+publish_date: "July 07 2025"
+is_visible: true
+is_pinned: false
+tags:
+- first-blogpost
+---
+
+Made in ~5 Hours using [AstroJs](https://github.com)!
+
+Repository: [Github](https://github.com/lalitm1004/lm04-blogs)

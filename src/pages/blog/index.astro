@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import { SITE_INFO } from "../../consts";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import BlogPostLink from "../../components/BlogPostLink.svelte";
+
+const blogPosts = (await getCollection("blog"))
+    .filter((bp) => bp.data.is_visible)
+    .sort(
+        (a, b) => b.data.publish_date.valueOf() - a.data.publish_date.valueOf(),
+    );
+---
+
+<BaseLayout
+    titleOverride={`lm04/blog`}
+    descriptionOverride={SITE_INFO.blogDescription}
+    slugOverride={`blog`}
+>
+    <ol class={`flex flex-col gap-4`}>
+        {blogPosts.map((blogPost) => <BlogPostLink {blogPost} />)}
+    </ol>
+</BaseLayout>
