@@ -24,11 +24,11 @@ const slugHref = slugHrefMap[slug] ?? "/";
     <nav
         class={`h-full md:w-[96ch] flex items-center justify-between md:m-auto mx-4`}
     >
-        <h2 class={`font-amulya font-bold italic md:text-3xl text-2xl`}>
+        <h1 class={`font-amulya font-bold italic md:text-3xl text-2xl`}>
             <Button.Root href={slugHref}>
                 lm04/{slug}
             </Button.Root>
-        </h2>
+        </h1>
 
         <NavigationMenu client:load {slug} {pathname} />
 

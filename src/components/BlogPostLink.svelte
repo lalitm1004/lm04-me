@@ -28,9 +28,9 @@
         </time>
 
         <hgroup class={`flex flex-col items-start`}>
-            <h4 class={`font-amulya font-bold text-xl`}>
+            <h2 class={`font-amulya font-bold text-xl`}>
                 {blogPost.data.title}
-            </h4>
+            </h2>
 
             <p class={`text-sm`}>{blogPost.data.description}</p>
         </hgroup>
