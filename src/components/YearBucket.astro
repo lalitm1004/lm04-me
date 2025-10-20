@@ -1,0 +1,28 @@
+---
+import type { YearBucket } from "../types/project.type";
+import Project from "./Project.astro";
+
+interface Props {
+    bucket: YearBucket;
+}
+
+const { bucket } = Astro.props;
+---
+
+<li class={`flex flex-col gap-4`}>
+    <hgroup class={`flex items-center gap-2`}>
+        <h2 class={`font-amulya font-bold text-2xl`}>
+            {bucket.year}
+        </h2>
+
+        <hr class={`w-full border border-stone-700`} />
+    </hgroup>
+
+    <ol class={`grid md:grid-cols-2 grid-cols-1 gap-4 px-2`}>
+        {
+            bucket.projects.map((project) => (
+                <Project {project} displayStar={true} />
+            ))
+        }
+    </ol>
+</li>

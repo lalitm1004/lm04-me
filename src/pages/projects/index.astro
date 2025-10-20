@@ -3,10 +3,11 @@ import { getCollection } from "astro:content";
 import { SITE_INFO } from "../../consts";
 import type {
     ProjectWithTimeRange,
-    YearBucket,
+    YearBucket as YearBucketT,
 } from "../../types/project.type";
 
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import YearBucket from "../../components/YearBucket.astro";
 
 const formatTimeRange = (start: Date, end?: Date): string => {
     const formatDate = (date: Date) =>
@@ -22,25 +23,25 @@ const formatTimeRange = (start: Date, end?: Date): string => {
     return `${formatDate(start)} - ${formatDate(end)}`;
 };
 
-const getYearBuckets = async (): Promise<YearBucket[]> => {
+const getYearBuckets = async (): Promise<YearBucketT[]> => {
     const projects = (await getCollection("projects"))
         .filter((p) => p.data.is_visible)
         .sort((a, b) => {
             const aIsOngoing = !a.data.end_date;
             const bIsOngoing = !b.data.end_date;
 
-            // Ongoing projects come first
+            // ongoing projects come first
             if (aIsOngoing && !bIsOngoing) return -1;
             if (!aIsOngoing && bIsOngoing) return 1;
 
-            // Both ongoing: sort by start date descending
+            // both ongoing: sort by start date descending
             if (aIsOngoing && bIsOngoing) {
                 return (
                     b.data.start_date.valueOf() - a.data.start_date.valueOf()
                 );
             }
 
-            // Both have end dates: sort by end date descending, then start date descending
+            // both have end dates: sort by end date descending, then start date descending
             const endDateDiff =
                 b.data.end_date!.valueOf() - a.data.end_date!.valueOf();
             if (endDateDiff !== 0) return endDateDiff;
@@ -88,8 +89,7 @@ const yearBuckets = await getYearBuckets();
     descriptionOverride={SITE_INFO.projectsDescription}
     slugOverride={`projects`}
 >
-    <!-- todo -->
-    <pre>
-{JSON.stringify(yearBuckets, null, 2)}
-</pre>
+    <ol class={`flex flex-col gap-6`}>
+        {yearBuckets.map((bucket) => <YearBucket {bucket} />)}
+    </ol>
 </BaseLayout>

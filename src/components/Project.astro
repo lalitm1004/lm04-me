@@ -1,0 +1,78 @@
+---
+import type { ProjectWithTimeRange } from "../types/project.type";
+import RenderTags from "./RenderTags.svelte";
+
+import { Button } from "bits-ui";
+import Star from "./Star.svelte";
+
+interface Props {
+    project: ProjectWithTimeRange;
+    displayStar?: boolean;
+}
+
+const { project, displayStar = false } = Astro.props;
+const is_important = project.data.is_important && displayStar;
+const tags = project.data.tags ?? [];
+---
+
+<li
+    class={`group bg-stone-950 relative flex flex-col gap-1 pt-5 pb-0 border-2 border-neutral-800 rounded-md overflow-hidden hover:border-stone-600 hover:shadow-sm hover:shadow-stone-800 transition-all duration-300`}
+>
+    <Star {is_important} client:load />
+
+    <p class={`text-stone-500 text-sm ml-5 mr-4`}>
+        {project.timeRange}
+    </p>
+
+    <h4 class={`font-bold text-xl ml-5 mr-4`}>
+        {project.data.title}
+    </h4>
+
+    <span class="mx-4 -mt-1">
+        <RenderTags {tags} />
+    </span>
+
+    <p class={`flex-grow text-sm ml-5 mr-4 mt-2 text-wrap`}>
+        {project.data.description}
+    </p>
+
+    <div class="flex mt-4 h-[40px]">
+        {
+            project.data.repository_url && (
+                <Button.Root
+                    href={project.data.repository_url}
+                    class="flex-grow grid place-items-center border-t-2 border-neutral-800 group-hover:border-stone-600 transition-colors duration-300 hover:bg-stone-800/50"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    GitHub
+                </Button.Root>
+            )
+        }
+
+        {
+            project.data.deployment_url && (
+                <Button.Root
+                    href={project.data.deployment_url}
+                    class={`flex-grow grid place-items-center border-t-2 border-neutral-800 group-hover:border-stone-600 transition-colors duration-300 hover:bg-stone-800/50 ${project.data.repository_url ? "border-l-2" : ""}`}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    Deployment
+                </Button.Root>
+            )
+        }
+
+        {
+            project.data.blog_slug && (
+                <Button.Root
+                    href={`/blog/${project.data.blog_slug}`}
+                    class={`flex-grow grid place-items-center border-t-2 border-neutral-800 group-hover:border-stone-600 transition-colors duration-300 hover:bg-stone-800/50 ${project.data.repository_url || project.data.deployment_url ? "border-l-2" : ""}`}
+                    rel="noopener noreferrer"
+                >
+                    Read More
+                </Button.Root>
+            )
+        }
+    </div>
+</li>
