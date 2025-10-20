@@ -1,0 +1,95 @@
+---
+import { getCollection } from "astro:content";
+import { SITE_INFO } from "../../consts";
+import type {
+    ProjectWithTimeRange,
+    YearBucket,
+} from "../../types/project.type";
+
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const formatTimeRange = (start: Date, end?: Date): string => {
+    const formatDate = (date: Date) =>
+        date.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+
+    if (!end) return `${formatDate(start)} - ongoing`;
+    if (
+        start.getFullYear() === end.getFullYear() &&
+        start.getMonth() === end.getMonth()
+    ) {
+        return formatDate(start);
+    }
+    return `${formatDate(start)} - ${formatDate(end)}`;
+};
+
+const getYearBuckets = async (): Promise<YearBucket[]> => {
+    const projects = (await getCollection("projects"))
+        .filter((p) => p.data.is_visible)
+        .sort((a, b) => {
+            const aIsOngoing = !a.data.end_date;
+            const bIsOngoing = !b.data.end_date;
+
+            // Ongoing projects come first
+            if (aIsOngoing && !bIsOngoing) return -1;
+            if (!aIsOngoing && bIsOngoing) return 1;
+
+            // Both ongoing: sort by start date descending
+            if (aIsOngoing && bIsOngoing) {
+                return (
+                    b.data.start_date.valueOf() - a.data.start_date.valueOf()
+                );
+            }
+
+            // Both have end dates: sort by end date descending, then start date descending
+            const endDateDiff =
+                b.data.end_date!.valueOf() - a.data.end_date!.valueOf();
+            if (endDateDiff !== 0) return endDateDiff;
+
+            return b.data.start_date.valueOf() - a.data.start_date.valueOf();
+        });
+
+    const projectsWithTimeRange: ProjectWithTimeRange[] = projects.map(
+        (project) => ({
+            ...project,
+            timeRange: formatTimeRange(
+                project.data.start_date,
+                project.data.end_date,
+            ),
+        }),
+    );
+
+    const yearBuckets = new Map<number, ProjectWithTimeRange[]>();
+
+    for (const project of projectsWithTimeRange) {
+        const bucketYear = project.data.end_date
+            ? project.data.end_date.getFullYear()
+            : new Date().getFullYear();
+
+        if (!yearBuckets.has(bucketYear)) {
+            yearBuckets.set(bucketYear, []);
+        }
+
+        yearBuckets.get(bucketYear)!.push(project);
+    }
+
+    return Array.from(yearBuckets.entries())
+        .map(([year, projects]) => ({
+            year,
+            projects,
+        }))
+        .sort((a, b) => b.year - a.year);
+};
+
+const yearBuckets = await getYearBuckets();
+---
+
+<BaseLayout
+    titleOverride={"lm04/projects"}
+    descriptionOverride={SITE_INFO.projectsDescription}
+    slugOverride={`projects`}
+>
+    <!-- todo -->
+    <pre>
+{JSON.stringify(yearBuckets, null, 2)}
+</pre>
+</BaseLayout>
