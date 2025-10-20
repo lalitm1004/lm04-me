@@ -1,6 +1,7 @@
 <script lang="ts">
     import { Button, DropdownMenu } from "bits-ui";
     import { slide } from "svelte/transition";
+    import { PERSONAL_INFO } from "../consts";
 
     const { slug, pathname }: { slug: string; pathname: string } = $props();
 
@@ -35,13 +36,13 @@
         {
             id: 0,
             display: "GitHub",
-            href: "https://github.com/lalitm1004",
+            href: PERSONAL_INFO.githubUrl,
             icon: githubSvg,
         },
         {
             id: 1,
             display: "LinkedIn",
-            href: "https://www.linkedin.com/in/lalitm1004/",
+            href: PERSONAL_INFO.linkedinUrl,
             icon: linkedinSvg,
         },
     ];
@@ -49,22 +50,21 @@
 
 <DropdownMenu.Root>
     <DropdownMenu.Trigger
-        class={`w-[144px] flex justify-between items-center pl-3 pr-2 py-1 hover:bg-neutral-800/50 border-2 border-neutral-800 rounded-md outline-0 cursor-pointer transition-colors duration-300`}
+        class={`w-[165px] flex justify-between items-center pl-3 pr-2 py-1 hover:bg-neutral-800/50 border-2 border-neutral-800 rounded-md outline-0 cursor-pointer transition-colors duration-300`}
     >
         <p>{menuText}</p>
-
         {@render upDownSvg()}
     </DropdownMenu.Trigger>
 
     <DropdownMenu.Portal>
         <DropdownMenu.Content
-            class={`w-[144px] py-2 border-2 border-neutral-800 rounded-md bg-stone-950`}
+            class={`w-[165px] py-2 border-2 border-neutral-800 rounded-md bg-stone-950`}
             sideOffset={6}
             forceMount
         >
             {#snippet child({ wrapperProps, props, open })}
-                {#if open}
-                    <div {...wrapperProps}>
+                <div {...wrapperProps}>
+                    {#if open}
                         <div {...props} transition:slide>
                             <DropdownMenu.Group class={`flex flex-col gap-1`}>
                                 {#each internalAnchors as anchor (anchor.id)}
@@ -109,8 +109,8 @@
                                 {/each}
                             </DropdownMenu.Group>
                         </div>
-                    </div>
-                {/if}
+                    {/if}
+                </div>
             {/snippet}
         </DropdownMenu.Content>
     </DropdownMenu.Portal>

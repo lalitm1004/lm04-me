@@ -1,7 +1,5 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
 @plugin "@tailwindcss/typography";
-
 
 @theme {
     --font-amulya: 'Amulya', sans-serif;
@@ -20,18 +18,14 @@
     --font-weight-black: 900;
 }
 
-
 @layer base {
     html {
         @apply font-quattro;
         @apply bg-stone-950 text-amber-50;
     }
+}
 
-    .prose :not(pre)>code {
-        @apply bg-neutral-900 px-2 py-1 rounded-sm
-    }
-
-    /* I could not figure out how else to change the background of code blocks */
+@layer base {
     pre.astro-code {
         background-color: #171717 !important;
     }
@@ -52,16 +46,13 @@
         content: none;
         display: none;
     }
+}
 
-
-    /* +----------------------------+ */
-    /* |      Scrollbar styles      | */
-    /* +----------------------------+ */
+/* scrollbar styles */
+@layer base {
     * {
         scrollbar-width: thin;
-        /* Firefox */
         scrollbar-color: #525252 #171717;
-        /* Firefox */
     }
 
     *::-webkit-scrollbar {
@@ -83,7 +74,6 @@
         background-color: #737373;
     }
 }
-
 
 @font-face {
     font-family: 'Amulya';

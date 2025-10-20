@@ -2,7 +2,6 @@
     import { fly } from "svelte/transition";
 
     let showScrollUp: boolean = $state(false);
-
     const scrollToTop = () => {
         window.scroll({
             top: 0,

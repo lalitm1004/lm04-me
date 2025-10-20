@@ -1,0 +1,37 @@
+---
+import { Button } from "bits-ui";
+
+import NavigationMenu from "./NavigationMenu.svelte";
+import ScrollUp from "./ScrollUp.svelte";
+
+interface Props {
+    pathname: string;
+    slug: string;
+}
+const { pathname, slug } = Astro.props;
+
+const slugHrefMap: Record<string, string> = {
+    me: "/",
+    "404": "/",
+    blog: "/blog",
+    projects: "/projects",
+    experiences: "/experiences",
+};
+const slugHref = slugHrefMap[slug] ?? "/";
+---
+
+<header class={`h-[75px] w-full my-4`}>
+    <nav
+        class={`h-full md:w-[96ch] flex items-center justify-between md:m-auto mx-4`}
+    >
+        <h2 class={`font-amulya font-bold italic md:text-3xl text-2xl`}>
+            <Button.Root href={slugHref}>
+                lm04/{slug}
+            </Button.Root>
+        </h2>
+
+        <NavigationMenu client:load {slug} {pathname} />
+
+        <ScrollUp client:load />
+    </nav>
+</header>

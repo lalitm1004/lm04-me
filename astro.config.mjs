@@ -1,26 +1,23 @@
 // @ts-check
-import { defineConfig } from "astro/config";
+import { defineConfig } from 'astro/config';
 import devtoolsJson from "vite-plugin-devtools-json";
+import svelte from '@astrojs/svelte';
+import tailwindcss from '@tailwindcss/vite';
+import remarkMath from 'remark-math';
+import rehypeExternalLinks from 'rehype-external-links';
+import rehypeKatex from 'rehype-katex';
 import mermaid from "astro-mermaid";
-import mdx from "@astrojs/mdx";
-import remarkMath from "remark-math";
-import rehypeExternalLinks from "rehype-external-links";
-import rehypeKatex from "rehype-katex";
 import sitemap from "@astrojs/sitemap";
-import svelte from "@astrojs/svelte";
-import tailwindcss from "@tailwindcss/vite";
+import mdx from "@astrojs/mdx";
 
-
+// https://astro.build/config
 export default defineConfig({
 	site: "https://lm04.me",
 
 	prefetch: true,
 
 	vite: {
-		plugins: [
-			devtoolsJson(),
-			tailwindcss()
-		]
+		plugins: [devtoolsJson(), tailwindcss()]
 	},
 
 	integrations: [
@@ -35,7 +32,7 @@ export default defineConfig({
 	markdown: {
 		syntaxHighlight: {
 			type: "shiki",
-			excludeLangs: ["mermaid", "math"]
+			excludeLangs: ["mermaid", "math"],
 		},
 		shikiConfig: {
 			theme: "everforest-dark",
@@ -44,9 +41,9 @@ export default defineConfig({
 		rehypePlugins: [
 			[rehypeExternalLinks, {
 				target: "_blank",
-				rel: ["noopener", "noreferrer"]
+				rel: ["noopener", "noreferrer"],
 			}],
-			rehypeKatex
+			rehypeKatex,
 		],
-	}
+	},
 });

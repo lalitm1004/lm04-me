@@ -1,45 +1,45 @@
 <script lang="ts">
     import type { CollectionEntry } from "astro:content";
-    import { Button, Separator } from "bits-ui";
     import RenderTags from "./RenderTags.svelte";
-    import slugify from "../utils/slugify";
 
-    type Blog = CollectionEntry<"blog">;
+    import { Button, Separator } from "bits-ui";
 
-    let { blog }: { blog: Blog } = $props();
-    const safeTags = $derived(blog.data.blog_tags ?? []);
+    type BlogPost = CollectionEntry<"blog">;
+
+    let { blogPost }: { blogPost: BlogPost } = $props();
+    const tags = $derived(blogPost.data.tags ?? []);
 </script>
 
-<li
-    class={`hover:bg-stone-800/50 md:px-4 px-2 py-2 rounded-md transition-colors duration-200`}
->
+<li>
     <Button.Root
-        class={`h-full w-full`}
-        href={`/blog/${slugify(blog.data.slug)}`}
+        href={`/blog/${blogPost.data.slug}`}
         data-astro-prefetch={`load`}
+        class={`flex flex-col items-start md:px-4 px-2 py-4 hover:bg-stone-800/50 rounded-md transition-colors duration-200`}
     >
         <time
             class={`text-stone-500 text-sm`}
-            datetime={blog.data.publish_date.toISOString()}
+            datetime={blogPost.data.publish_date.toISOString()}
         >
-            {blog.data.publish_date.toLocaleDateString("en-us", {
+            {blogPost.data.publish_date.toLocaleDateString("en-us", {
                 year: "numeric",
                 month: "long",
                 day: "2-digit",
             })}
         </time>
 
-        <hgroup>
-            <h4 class={`font-amulya font-bold text-xl`}>{blog.data.title}</h4>
+        <hgroup class={`flex flex-col items-start`}>
+            <h4 class={`font-amulya font-bold text-xl`}>
+                {blogPost.data.title}
+            </h4>
 
-            <p class={`text-sm`}>{blog.data.description}</p>
+            <p class={`text-sm`}>{blogPost.data.description}</p>
         </hgroup>
 
-        <RenderTags tags={safeTags} />
+        <RenderTags {tags} />
     </Button.Root>
-</li>
 
-<Separator.Root
-    orientation={`horizontal`}
-    class={`bg-stone-800 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full`}
-/>
+    <Separator.Root
+        orientation={`horizontal`}
+        class={`mt-5 bg-stone-800 data-[orientation=horizontal]:h-px data-[orientation=horizontal]:w-full`}
+    />
+</li>
