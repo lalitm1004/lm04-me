@@ -6,6 +6,7 @@ export const SITE_INFO = {
 };
 
 export const PERSONAL_INFO = {
+    birthDate: new Date(2005, 3, 10), // April 10 2005
     githubUrl: "https://github.com/lalitm1004",
     linkedinUrl: "https://linkedin.com/in/lalitm1004"
 };

@@ -6,6 +6,7 @@
     --font-quattro: 'Quattro', sans-serif;
     --font-jetbrains: 'JetBrainsMono', monospace;
     --font-omori: 'Omori', sans-serif;
+    --font-grotesk: 'ClashGrotesk', sans-serif;
 
     --font-weight-thin: 100;
     --font-weight-extralight: 200;
@@ -16,6 +17,21 @@
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
     --font-weight-black: 900;
+
+    --color-tv-girl-pink: #ED2788;
+    --color-tv-girl-blue: #0F479F;
+
+    --animate-bg-pan: bg-pan 20s linear infinite;
+
+    @keyframes bg-pan {
+        0% {
+            background-position: 0% center;
+        }
+
+        100% {
+            background-position: -200% center;
+        }
+    }
 }
 
 @layer base {
@@ -115,6 +131,16 @@
     font-family: 'Omori';
     src: url('/fonts/Omori/OMORI_GAME2.ttf') format('truetype');
     font-weight: 400;
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ClashGrotesk';
+    src: url('/fonts/ClashGrotesk/ClashGrotesk-Variable.woff2') format('woff2'),
+        url('/fonts/ClashGrotesk/ClashGrotesk-Variable.woff') format('woff'),
+        url('/fonts/ClashGrotesk/ClashGrotesk-Variable.ttf') format('truetype');
+    font-weight: 200 700;
     font-display: swap;
     font-style: normal;
 }
